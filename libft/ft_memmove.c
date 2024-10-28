@@ -9,7 +9,7 @@
 /*   Updated: 2024/10/23 16:02:09 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

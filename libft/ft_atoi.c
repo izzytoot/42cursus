@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:45:18 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/22 17:16:59 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/28 12:13:56 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/28 15:36:33 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*tmp;
-	size_t			i;
+	int	i;
+	int	sym;
+	int	r;
 
-	tmp = s;
 	i = 0;
-	while (i < n)
+	sym = 1;
+	r = 0;
+	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
+	if (nptr[i] == '-')
+		sym = -1;
+	if (nptr[i] == '+' || nptr[i] == '-')
+		i++;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		tmp[i] = 0;
+		r = r * 10 + (nptr[i] - '0');
 		i++;
 	}
+	return (sym * r);
 }
 /*
-#include <strings.h>
+#include <stdlib.h>
 #include <stdio.h>
 int	main(void)
 {
-	char str[] = "vamos testar";
-	ft_bzero(str, 3);
-	printf ("%s\n", str);
-	bzero(str, 3);
-	printf ("%s\n", str);
+	char nptr[] = "    -4256pdjf";
+	printf("%d\n", ft_atoi(nptr));
+	printf("%d\n", atoi(nptr));
 	return (0);
 }
 */

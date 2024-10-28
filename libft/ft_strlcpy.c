@@ -9,9 +9,9 @@
 /*   Updated: 2024/10/22 17:59:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
-unsigned int	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	unsigned int	i;
 	unsigned int	len;
@@ -47,8 +47,8 @@ int	main(void)
 	int	rorig;
 	rmine = ft_strlcpy(dst, src, 0);
 	rorig = strlcpy(dst, src, 0);
-	printf("%d\n", rorig);
 	printf("%d\n", rmine);
+	printf("%d\n", rorig);
 	return (0);
 }
 */

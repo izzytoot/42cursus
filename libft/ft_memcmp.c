@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 15:45:18 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/22 17:16:59 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/28 10:13:31 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/28 14:06:06 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*tmp;
-	size_t			i;
+	size_t				i;
+	unsigned char		*temps1;
+	unsigned const char	*temps2;
 
-	tmp = s;
 	i = 0;
+	temps1 = (unsigned char *) s1;
+	temps2 = (unsigned char *) s2;
+	if (i == n)
+	{
+		return (0);
+	}
 	while (i < n)
 	{
-		tmp[i] = 0;
+		if (temps1[i] != temps2[i])
+			return (temps1[i] - temps2[i]);
 		i++;
 	}
+	return (temps1[i] - temps2[i]);
 }
 /*
-#include <strings.h>
+#include <string.h>
 #include <stdio.h>
 int	main(void)
 {
-	char str[] = "vamos testar";
-	ft_bzero(str, 3);
-	printf ("%s\n", str);
-	bzero(str, 3);
-	printf ("%s\n", str);
+	char	*s1 = "abcd";
+	char	*s2 = "abtd";
+	printf ("%i\n", ft_memcmp(s1, s2, 10));
+	printf ("%i\n", memcmp(s1, s2, 10));
 	return (0);
 }
 */

@@ -9,7 +9,7 @@
 /*   Updated: 2024/10/22 14:05:38 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
