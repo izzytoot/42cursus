@@ -14,14 +14,14 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*tmp;
+	unsigned char	*temp;
 	size_t			i;
 
-	tmp = s;
+	temp = s;
 	i = 0;
 	while (i < n)
 	{
-		tmp[i] = 0;
+		temp[i] = 0;
 		i++;
 	}
 }
@@ -30,7 +30,7 @@ void	ft_bzero(void *s, size_t n)
 #include <stdio.h>
 int	main(void)
 {
-	char str[] = "vamos testar";
+	char *str = "vamos testar";
 	ft_bzero(str, 3);
 	printf ("%s\n", str);
 	bzero(str, 3);

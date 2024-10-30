@@ -6,25 +6,26 @@
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:35:49 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/22 14:35:50 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:07:22 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	unsigned char	*tmp;
+	size_t			i;
+	unsigned char	*temp;
 
-	tmp = (unsigned char *) s;
-	if (!s)
-		return (NULL);
-	while (n > 0)
+	i = 0;
+	temp = (unsigned char *)s;
+	while (i < n)
 	{
-		*(tmp++) = (unsigned char) c;
-		n--;
+		temp[i] = (unsigned char)c;
+		i++;
 	}
 	return (s);
 }
+
 /*
 #include <string.h>
 #include <stdio.h>

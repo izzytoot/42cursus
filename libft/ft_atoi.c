@@ -38,7 +38,7 @@ int	ft_atoi(const char *nptr)
 #include <stdio.h>
 int	main(void)
 {
-	char nptr[] = "    -4256pdjf";
+	char *nptr = "    -4256pdjf";
 	printf("%d\n", ft_atoi(nptr));
 	printf("%d\n", atoi(nptr));
 	return (0);

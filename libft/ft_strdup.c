@@ -1,35 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:05:37 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/22 14:05:38 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/29 16:46:19 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/29 16:46:20 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(const char *s)
 {
-	size_t	i;
+	int		len;
+	int		i;
+	char	*dest;
 
+	len = strlen(s);
+	dest = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dest)
+		return (NULL);
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
+	{
+		dest[i] = s[i];
 		i++;
-	return (i);
+	}
+	dest[i] = '\0';
+	return (dest);
 }
-
 /*
-#include <string.h>
-#include <stdio.h>
+# include <string.h>
 int	main(void)
 {
-	char	*src = "vim aqui dizer ola";
-	
-	printf ("%lu\n", ft_strlen(src));
-	printf ("%lu\n", strlen(src));
+	const char	*s = "esta string duplicada";
+	const char	*newmine = ft_strdup(s);
+	const char	*neworig = strdup(s);
+	printf ("%s\n", newmine);
+	printf ("%s\n", neworig);
+	free (newmine);
+	free (neworig);
 	return (0);
 }
 */

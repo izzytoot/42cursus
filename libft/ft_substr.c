@@ -1,46 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 10:13:31 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/28 14:06:06 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/30 15:33:27 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/30 15:33:29 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t				i;
-	unsigned char		*temps1;
-	unsigned const char	*temps2;
+	char	*r;
+	size_t	i;
+	size_t	j;
 
+	if (!s || start > ft_strlen(s))
+		return (NULL);
+	r = (char *)malloc(sizeof(char) * (len + 1));
+	if (!r)
+		return (NULL);
 	i = 0;
-	temps1 = (unsigned char *) s1;
-	temps2 = (unsigned char *) s2;
-	if (i == n)
+	j = 0;
+	while (s[i])
 	{
-		return (0);
-	}
-	while (i < n - 1)
-	{
-		if (temps1[i] != temps2[i])
-			return (temps1[i] - temps2[i]);
+		if (i >= start && j < len)
+		{
+			r[j] = s[i];
+			j++;
+		}
 		i++;
 	}
-	return (temps1[i] - temps2[i]);
+	r[i] = '\0';
+	return (r);
 }
 /*
-#include <string.h>
 #include <stdio.h>
 int	main(void)
 {
-	char	s1[] = "abcd";
-	char	s2[] = "abtd";
-	printf ("%i\n", ft_memcmp(s1, s2, 10));
-	printf ("%i\n", memcmp(s1, s2, 10));
+	char const	*s = "Ola e adeus";
+	unsigned int	start;
+	size_t	len;
+	
+	start = 4;
+	len = 11;
+	printf ("%s\n", ft_substr(s, start, len));
 	return (0);
 }
 */
