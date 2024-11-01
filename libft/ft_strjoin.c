@@ -1,51 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 15:33:27 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 15:39:59 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/31 16:02:05 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/31 17:53:49 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*r;
-	size_t	s_len;
+	char	*new_str;
 	size_t	i;
 	size_t	j;
 
-	if (!s)
+	if (!s1 || !s2)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
-		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	r = (char *)malloc(sizeof(char) * (len + 1));
-	if (!r)
+	new_str = (char *)malloc(sizeof(char)
+			* (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!new_str)
 		return (NULL);
-	i = start;
+	i = 0;
 	j = 0;
-	while (i < s_len && j < len)
-		r[j++] = s[i++];
-	r[j] = '\0';
-	return (r);
+	while (s1[i])
+		new_str[j++] = s1[i++];
+	i = 0;
+	while (s2[i])
+		new_str[j++] = s2[i++];
+	new_str[j] = '\0';
+	return ((char *) new_str);
 }
 /*
 #include <stdio.h>
-int	main(void)
+int main(void)
 {
-	char const	*s = "Ola e adeus";
-	unsigned int	start;
-	size_t	len;
-	
-	start = 4;
-	len = 3;
-	printf ("%s\n", ft_substr(s, start, len));
-	return (0);
+    char    *s1 = "Isabel ";
+    char    *s2 = "Tootill";
+    char    *new_str = ft_strjoin(s1, s2);
+    
+    printf("%s\n", new_str);
+    free (new_str);
+    return (0);
 }
 */

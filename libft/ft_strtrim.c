@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/30 15:33:27 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 15:39:59 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/10/31 18:06:49 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/10/31 18:59:13 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*r;
-	size_t	s_len;
+	char	*new_string;
 	size_t	i;
 	size_t	j;
 
-	if (!s)
+	if (!s1)
 		return (NULL);
-	s_len = ft_strlen(s);
-	if (start >= s_len)
+	if (!set)
+		return (ft_strdup(s1));
+	i = 0;
+	j = (ft_strlen(s1) - 1);
+	while (s1[i] && ft_strchr(set, s1[i]))
+		i++;
+	while (s1[i] && ft_strchr(set, s1[j]))
+		j--;
+	if (i > j)
 		return (ft_strdup(""));
-	if (len > s_len - start)
-		len = s_len - start;
-	r = (char *)malloc(sizeof(char) * (len + 1));
-	if (!r)
-		return (NULL);
-	i = start;
-	j = 0;
-	while (i < s_len && j < len)
-		r[j++] = s[i++];
-	r[j] = '\0';
-	return (r);
+	new_string = ft_substr(s1, i, ((j - i) + 1));
+	return (new_string);
 }
 /*
 #include <stdio.h>
+#include <stdlib.h>
 int	main(void)
 {
-	char const	*s = "Ola e adeus";
-	unsigned int	start;
-	size_t	len;
+	char	*s1 = "ola isto acaba em o";
+	char	*set = "o";
+	char	*trim = ft_strtrim(s1, set);
 	
-	start = 4;
-	len = 3;
-	printf ("%s\n", ft_substr(s, start, len));
+	printf ("%s\n", trim);
+	free (trim);
 	return (0);
 }
 */
