@@ -6,9 +6,10 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:33:27 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 15:39:59 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:02:24 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

@@ -6,9 +6,10 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:45:18 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 15:50:05 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:00:52 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

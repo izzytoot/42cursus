@@ -6,9 +6,10 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:02:05 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 17:53:49 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:01:40 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

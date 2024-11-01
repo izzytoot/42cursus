@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 18:06:49 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/10/31 18:59:13 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/01 10:20:23 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 	while (s1[i] && ft_strchr(set, s1[j]))
 		j--;
-	if (i > j)
-		return (ft_strdup(""));
 	new_string = ft_substr(s1, i, ((j - i) + 1));
 	return (new_string);
 }
