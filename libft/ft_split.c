@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/02 19:41:28 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/02 20:54:19 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/11/04 15:17:06 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/11/04 16:37:50 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char const *s, char c)
+size_t	count_words(char const *s, char c)
 {
-	int		w;
+	size_t	w;
 	char	prev_char;
 	int		i;
 
@@ -36,36 +36,66 @@ int	word_count(char const *s, char c)
 	return (w);
 }
 
+int	error_malloc(char **sing_word, int pos, size_t buffer)
+{
+	int	i;
+
+	i = 0;
+	sing_word[pos] = malloc(buffer);
+	if (!sing_word[pos])
+	{
+		while (i < pos)
+			free(sing_word[i++]);
+		free(sing_word);
+		return (1);
+	}
+	return (0);
+}
+
+int	fill_new_arr(char **sing_word, char const *s, char c)
+{
+	int		i;
+	size_t	len;
+
+	i = 0;
+	if (!sing_word)
+		return (0);
+	while (*s)
+	{
+		len = 0;
+		while (*s == c && *s)
+			++s;
+		while (*s != c && *s)
+		{
+			++len;
+			++s;
+		}
+		if (len)
+		{
+			if (error_malloc(sing_word, i, len + 1))
+				return (1);
+			ft_strlcpy(sing_word[i], s - len, len + 1);
+		}
+		++i;
+	}
+	return (0);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**new_array;
-	size_t	i;
-	size_t	j;
-	size_t	wlen;
-	size_t	start;
+	size_t	w;
+	char	**new_arr;
 
 	if (!s)
 		return (NULL);
-	new_array = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
-	if (!new_array)
+	w = count_words(s, c);
+	new_arr = malloc((w + 1) * sizeof(char *));
+	if (!new_arr)
 		return (NULL);
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
-		{
-			start = i;
-			while (s[i] != c && s[i] != '\0')
-				i++;
-			wlen = i - start;
-			new_array[j++] = ft_substr(s, start, wlen);
-		}
-	}
-	new_array[j] = NULL;
-	return (new_array);
+	new_arr[w] = NULL;
+	if (fill_new_arr(new_arr, s, c))
+		return (NULL);
+	return (new_arr);
 }
 /*
 #include <stdio.h>
@@ -76,31 +106,17 @@ int	main(void)
 	char	**result;
 	int	i;
 	
-	s = "   this is a     string of   6. ";
+	s = "isto é uma string de 6   ";
 	c = ' ';
 	result = ft_split(s, c);
 	i = 0;
 	while (result[i])
 	{
 		printf("%s\n", result[i]);
+		free(result[i]);
 		i++;
 	}
 	free (result);
-	return (0);
-}
-*/
-
-/*
-int	main(void)
-{
-	char	const *s;
-	char	c;
-	int	result;
-	
-	s = "   this is a     string of   6. ";
-	c = ' ';
-	result = word_count(s, c);
-	printf("%d\n", result);
 	return (0);
 }
 */
