@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:53:36 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/04 17:31:39 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:32:08 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	n_digits(int n)
+static size_t	n_digits(int n)
 {
 	size_t	len;
 

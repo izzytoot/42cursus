@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:17:06 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/04 16:37:50 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:15:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *s, char c)
+static size_t	count_words(char const *s, char c)
 {
 	size_t	w;
 	char	prev_char;
@@ -36,7 +36,7 @@ size_t	count_words(char const *s, char c)
 	return (w);
 }
 
-int	error_malloc(char **sing_word, int pos, size_t buffer)
+static int	error_malloc(char **sing_word, int pos, size_t buffer)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ int	error_malloc(char **sing_word, int pos, size_t buffer)
 	return (0);
 }
 
-int	fill_new_arr(char **sing_word, char const *s, char c)
+static int	fill_new_arr(char **sing_word, char const *s, char c)
 {
 	int		i;
 	size_t	len;

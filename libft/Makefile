@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+         #
+#    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 13:30:18 by icunha-t          #+#    #+#              #
-#    Updated: 2024/11/04 16:53:48 by icunha-t         ###   ########.fr        #
+#    Updated: 2024/11/06 14:31:48 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJS = $(SRCS:.c=.o)
 
 HEADER = ./libft.h
 
-CC = cc
+C_COMP = cc
 FLAGS = -Wall -Werror -Wextra
 
 RED		= "\033[0;31m"
@@ -32,13 +32,13 @@ $(NAME): $(OBJS)
 	@echo $(GREEN) "$(NAME) was created successfully!" $(RESET)
 	
 %.o: %.c $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+	$(C_COMP) $(FLAGS) -c $< -o $@
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 	@echo $(RED) "All *.o were deleted!" $(RESET)
 	
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 	@echo $(RED) "$(NAME) was deleted!" $(RESET)
 
 re: fclean all

@@ -6,13 +6,13 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:29:09 by root              #+#    #+#             */
-/*   Updated: 2024/11/02 13:48:11 by root             ###   ########.fr       */
+/*   Updated: 2024/11/06 14:15:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar(char c, int fd)
+static void	ft_putchar(char c, int fd)
 {
 	write (fd, &c, 1);
 }
