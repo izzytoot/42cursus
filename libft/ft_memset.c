@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:35:49 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:29 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/07 12:09:27 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int	main(void)
 	printf ("%s\n", (char *)ft_memset(str + 5, '-', 3));
 	printf ("%s\n", (char *)memset(str + 5, '-', 3));
 	int	arr[5] = {1, 2, 3, 4, 5};
-	ft_memset(arr, 0, 5*sizeof(arr[0]));
+	ft_memset(arr, 0, 3*sizeof(arr[0]));
 	printArray (arr, 5);
-	memset(arr, 0, 5*sizeof(arr[0]));
+	memset(arr, 0, 3*sizeof(arr[0]));
 	printArray (arr, 5);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:48:51 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/06 14:16:25 by root             ###   ########.fr       */
+/*   Updated: 2024/11/07 11:47:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int	main(void)
 {
 	int	n;
 	
-	n = 60;
-	printf("%d\n", ft_toupper(n));
-	printf("%d\n", toupper(n));
+	n = 'j';
+	printf("%c\n", (unsigned char)ft_toupper(n));
+	printf("%c\n", (unsigned char)toupper(n));
 }
 */

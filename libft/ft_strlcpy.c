@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:59:37 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:46 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:09:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	i = 0;
 	len = 0;
 	while (src[len])
-	{
 		len++;
-	}
 	if (size > 0)
 	{
 		while (src[i] && i < size - 1)

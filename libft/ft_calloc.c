@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 17:13:34 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:00 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:03:57 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	i;
 	char	*dest;
 
 	if (nmemb == 0 || size == 0)
@@ -22,12 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	dest = malloc(nmemb * size);
 	if (!dest)
 		return (NULL);
-	i = 0;
-	while (i < nmemb * size)
-	{
-		dest[i] = 0;
-		i++;
-	}
+	ft_memset(dest, 0, nmemb * size);
 	return ((void *)dest);
 }
 /*

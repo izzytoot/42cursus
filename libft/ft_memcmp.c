@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:13:31 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:20 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/07 13:13:34 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	temps1 = (unsigned char *) s1;
 	temps2 = (unsigned char *) s2;
 	if (i == n)
-	{
 		return (0);
-	}
 	while (i < n - 1)
 	{
 		if (temps1[i] != temps2[i])

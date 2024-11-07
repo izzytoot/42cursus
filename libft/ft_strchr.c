@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 16:36:06 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:32 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/06 16:52:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,15 @@ int	main(void)
 	int	c = 'e';
 	char	*resultmine = ft_strchr(s, c);
 	char	*resultorig = strchr(s, c);
-
+	
+	if (resultmine)
+		printf("%s\n", resultmine);
 	if (resultmine)
 		printf("Found '%c' at position %ld\n", c, resultmine - s);
 	if (resultorig)
 		printf("Found '%c' at position %ld\n", c, resultorig - s);
 	else
-		printf("Char '%c' not found", c);
+		printf("Char '%c' not found\n", c);
 	return (0);
 }
 */

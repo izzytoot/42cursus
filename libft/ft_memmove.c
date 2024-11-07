@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:08:58 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:26 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:03:39 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 int	main(void)
 {
 	char	src[] = "Vamos testar";
-	char	dest[50];
+	char	dest[15];
 	printf ("%s\n", (char *)ft_memmove(dest, src, 2));
 	printf ("%s\n", (char *)memmove(dest, src, 2));
 	return (0);
