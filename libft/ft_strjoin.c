@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:02:05 by icunha-t          #+#    #+#             */
-/*   Updated: 2024/11/01 12:01:40 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/07 15:30:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[i])
 		new_str[j++] = s2[i++];
 	new_str[j] = '\0';
-	return ((char *) new_str);
+	return (new_str);
 }
 /*
 #include <stdio.h>

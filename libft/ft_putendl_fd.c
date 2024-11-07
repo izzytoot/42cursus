@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 18:35:56 by root              #+#    #+#             */
-/*   Updated: 2024/11/01 20:04:59 by root             ###   ########.fr       */
+/*   Updated: 2024/11/07 17:58:11 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(void)
 	test_sf = "Test file";
 	ft_putendl_fd (test_sf, 1);
 	test_st = "Test terminal";
-	ft_putendl_fd (test_sf, fd);
+	ft_putendl_fd (test_st, fd);
 	close(fd);
 	return (0);
 }
