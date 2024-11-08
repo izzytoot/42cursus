@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:47:57 by root              #+#    #+#              #
-#    Updated: 2024/11/08 16:01:19 by root             ###   ########.fr        #
+#    Updated: 2024/11/08 17:30:38 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ DEPS = ft_printf.h
 LIBFTNAME = libft.a
 LIBFTDIR = ./libft
 
-SRCS = ft_printf.c
+SRCS = src/ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -45,4 +45,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all clean fclean re
