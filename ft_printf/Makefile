@@ -6,18 +6,19 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:47:57 by root              #+#    #+#              #
-#    Updated: 2024/11/08 17:30:38 by root             ###   ########.fr        #
+#    Updated: 2024/11/08 18:40:35 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-DEPS = ft_printf.h 
 LIBFTNAME = libft.a
 LIBFTDIR = ./libft
 
-SRCS = src/ft_printf.c
+SRCS = srcs/ft_printf.c ft_printchar.c ft_printstr.c ft_printptr.c
 
 OBJS = $(SRCS:.c=.o)
+
+HEADER = ./ft_printf.h
 
 C_COMP = cc
 FLAGS = -Wall -Werror -Wextra
@@ -28,11 +29,11 @@ RESET		= "\033[0m"
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(DEPS)
+$(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
 	@echo $(GREEN) "$(NAME) was created successfully!" $(RESET)
 
-%.o: %.c $(DEPS)
+%.o: %.c $(HEADER)
 	$(C_COMP) $(FLAGS) -c $< -o $@
 
 clean:

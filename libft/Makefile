@@ -6,7 +6,7 @@
 #    By: root <root@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/28 13:30:18 by icunha-t          #+#    #+#              #
-#    Updated: 2024/11/06 14:31:48 by root             ###   ########.fr        #
+#    Updated: 2024/11/08 17:35:32 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ $(NAME): $(OBJS)
 	
 %.o: %.c $(HEADER)
 	$(C_COMP) $(FLAGS) -c $< -o $@
+	
 clean:
 	@rm -f $(OBJS)
 	@echo $(RED) "All *.o were deleted!" $(RESET)

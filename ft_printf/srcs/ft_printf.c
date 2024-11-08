@@ -6,56 +6,48 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:57:55 by root              #+#    #+#             */
-/*   Updated: 2024/11/08 16:46:07 by root             ###   ########.fr       */
+/*   Updated: 2024/11/08 18:45:51 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-static void	ft_check_printf(char spec, int	i, va_list *ap)
+int	ft_print_format(char spec, va_list ap)
 {
-	int	i;
+	int	r;
 
-	i = 0;
-	if (spec == 's')
-		ft_string(va_arg(ap, char *), i);
+	r = 0;
+	if (spec == 'c')
+		r = ft_printchar(va_arg(ap, int));
+	else if (spec == 's')
+		r = ft_printstr(va_arg(ap, char *));
 	else if (spec == 'd' || spec == 'i')
-		ft_number(va_arg(ap, int), i);
-	else if (spec == 'u')
-		ft_unsigned_int(va_arg(ap, unsigned int), i);
-	else if (spec == 'x')
-		ft_hex_lower(va_arg(ap, unsigned int), i, 'x');
-	else if (spec == 'X')
-		ft_hexa_upper(va_arg(ap, unsigned int), i, 'X');
+		r = ft_printint(spec, (long)va_arg(ap, int), 10);
 	else if (spec == 'p')
-		ft_pointer(va_arg(ap, void *), i);
-	else if (spec == 'c')
-		ft_putchar(va_arg(ap, char), i);
-	else if (s == '%')
-		ft_length('%', i);
+		r = ft_printptr((unsigned long)va_arg(ap, unsigned long));
+	else if (spec == 'u')
+		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 10);
+	else if (spec == 'x' || spec == 'X')
+		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 16);
 	else
-		
+		r += write(1, &spec, 1);
+	return (r);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
-	unsigned int	i;
 	unsigned int	r;
 
 	va_start(ap, format);
-	i = 0;
 	r = 0;
-	while (format[i])
+	while (*format)
 	{
-		if (format[i] == '%' && ft_strchr(SPECIFIERS, format[i + 1]))
-		{
-			r = r + ft_check_printf(format, i, ap);
-			i++;
-		}
+		if (*format == '%')
+			r = r + ft_print_format(*(++format), ap)
 		else
-			r = r + ft_putchar(format[i])
-		i++;
+			r = r + ft_putchar(*format);
+		++format;
 	}
 	va_end(ap);
 	return (r);

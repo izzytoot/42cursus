@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 15:30:50 by root              #+#    #+#             */
-/*   Updated: 2024/11/08 18:47:34 by root             ###   ########.fr       */
+/*   Created: 2024/11/08 18:47:56 by root              #+#    #+#             */
+/*   Updated: 2024/11/08 18:57:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+#include "../ft_printf.h"
 
-#include "../libft/libft.h"
-#include <stdarg.h>
+ft_printint(char spec, long n, int base)
+{
+	int	r;
+	char	*sym;
 
-#define SPECIFIERS "cspdiuxX%"
-#define HEX_LOW "0123456789abcdef"
-#define HEX_UPP "0123456789ABCDEF"
-
-int	ft_printf(const char *format, ...);
-int	ft_printchar(int c);
-int	ft_printstr(char *str);
-
-int	ft_printptr(unsigned long n);
-
-#endif
+	if(spec == 'X')
+		sym =  HEX_UPP;
+	else
+		sym = HEX_LOW;
+	if (n < 0)
+	{
+		
+	}	
+}
