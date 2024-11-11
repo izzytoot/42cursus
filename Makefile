@@ -15,10 +15,6 @@
 #==============================================================================#
 NAME = libftprintf.a
 
-LIBFT_PATH = ./libft
-
-LIBFT_ARC = libft.a
-
 SRCS = srcs/ft_printf.c srcs/ft_printchar.c srcs/ft_printstr.c srcs/ft_printptr.c
 
 OBJS = $(SRCS:.c=.o)
@@ -33,11 +29,11 @@ FLAGS = -Wall -Werror -Wextra
 
 FLAGS += -g
 
-AR = ar rcs
+RM = rm -f
 
-MAKE = make
+AR = ar rcs
 #==============================================================================#
-#                                 COLOURS                                      #
+#                                 COLORS                                      #
 #==============================================================================#
 RED		= "\033[0;31m"
 GREEN		= "\033[0;32m"  
@@ -49,31 +45,18 @@ all: $(NAME)
 
 %.o: %.c $(HEADER)
 	$(C_COMP) $(FLAGS) -c $< -o $@
-
-$(LIBFT_ARC): $(LIBFT_PATH)/Makefile
-	$(MAKE) -C $(LIBFT_PATH)
-	@echo $(GREEN) "$(LIBFT_ARC) was created successfully!"$(RESET)
-
-$(NAME): $(LIBFT_ARC) $(OBJS)
-	@(AR) $(NAME) $(OBJS) $(LIBFT_ARC)
+	
+$(NAME): $(OBJS)
+	@(AR) $(NAME) $(OBJS)
 	@echo $(GREEN) "$(NAME) was created successfully!"$(RESET)
 
-get_libft:
-	if [ ! -d "$(LIBFT_PATH)" ]; then \
-		echo $(GREEN)"Cloning libft repository..."$(RESET); \
-		git clone git@github.com:izzytoot/libft.git $(LIBFT_PATH); \
-		echo $(GREEN)"Libft downloaded successfully!"$(RESET); \
-	else \
-		echo $(GREEN)"Libft already exists. Skipping clone." $(RESET); \
-	fi
-
 clean:
-	@rm -f $(OBJS)
+	@$(RM) $(OBJS)
 	@echo $(RED) "All *.o were deleted!" $(RESET)
 	
 fclean: clean
-	@rm -f $(NAME)
-	@rm -f $(LIBFT_ARC)
+	@$(RM) $(NAME)
+	@$(RM) $(LIBFT_ARC)
 	@echo $(RED) "$(NAME) and $(LIBFT_ARC) were deleted!" $(RESET)
 
 re: fclean all

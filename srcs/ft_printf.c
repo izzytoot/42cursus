@@ -44,7 +44,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-			r = r + ft_print_format(*(++format), ap)
+			r = r + ft_print_format(*(++format), ap);
 		else
 			r = r + ft_putchar(*format);
 		++format;
