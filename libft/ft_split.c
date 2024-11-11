@@ -44,10 +44,8 @@ static int	error_malloc(char **sing_word, int pos, size_t buffer)
 	sing_word[pos] = malloc(buffer);
 	if (!sing_word[pos])
 	{
-		while (i < pos)
-			free(sing_word[i++]);
 		free(sing_word);
-		return (1);
+		return (1);error_malloc
 	}
 	return (0);
 }
@@ -97,7 +95,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (new_arr);
 }
-/*
+
 #include <stdio.h>
 int	main(void)
 {
@@ -113,10 +111,8 @@ int	main(void)
 	while (result[i])
 	{
 		printf("%s\n", result[i]);
-		free(result[i]);
 		i++;
 	}
 	free (result);
 	return (0);
 }
-*/
