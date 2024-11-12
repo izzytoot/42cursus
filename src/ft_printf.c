@@ -3,50 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:57:55 by root              #+#    #+#             */
-/*   Updated: 2024/11/08 18:45:51 by root             ###   ########.fr       */
+/*   Updated: 2024/11/12 12:32:06 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_print_format(char spec, va_list ap)
+int	ft_print_format(char spec, va_list ap, int fd)
 {
 	int	r;
 
 	r = 0;
 	if (spec == 'c')
-		r = ft_printchar(va_arg(ap, int));
+		r = ft_printchar(va_arg(ap, int), fd);
 	else if (spec == 's')
-		r = ft_printstr(va_arg(ap, char *));
-	else if (spec == 'd' || spec == 'i')
-		r = ft_printint(spec, (long)va_arg(ap, int), 10);
+		r = ft_printstr(va_arg(ap, char *), fd);
 	else if (spec == 'p')
-		r = ft_printptr((unsigned long)va_arg(ap, unsigned long));
+		r = ft_printptr((unsigned long)va_arg(ap, unsigned long), fd);
+	else if (spec == 'd' || spec == 'i')
+		r = ft_printint(spec, (long)va_arg(ap, int), 10, fd);
 	else if (spec == 'u')
-		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 10);
+		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 10, fd);
 	else if (spec == 'x' || spec == 'X')
-		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 16);
+		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 16, fd);
 	else
-		r += write(1, &spec, 1);
+		r += write(fd, &spec, 1);
 	return (r);
 }
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
+	va_list			ap;
 	unsigned int	r;
+	int				fd;
 
 	va_start(ap, format);
 	r = 0;
+	fd = 1;
 	while (*format)
 	{
 		if (*format == '%')
-			r = r + ft_print_format(*(++format), ap);
+			r = r + ft_print_format(*(++format), ap, fd);
 		else
-			r = r + ft_putchar(*format);
+			r = r + ft_printchar(*format, fd);
 		++format;
 	}
 	va_end(ap);

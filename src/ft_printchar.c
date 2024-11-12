@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:32:37 by root              #+#    #+#             */
-/*   Updated: 2024/11/08 18:40:18 by root             ###   ########.fr       */
+/*   Created: 2024/11/08 18:21:19 by root              #+#    #+#             */
+/*   Updated: 2024/11/12 12:31:48 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printstr(char *str)
+int	ft_printchar(int c, int fd)
 {
-	int	i;
-
-	i = 0;
-	if(!str)
-		return (NULL);
-	while (str[i])
-	{
-		ft_printchar(str[i]);
-		i++;
-	}
-	return (i);
+	return (write (fd, &c, 1));
 }

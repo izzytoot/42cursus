@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:40:49 by root              #+#    #+#             */
-/*   Updated: 2024/11/08 18:46:55 by root             ###   ########.fr       */
+/*   Created: 2024/11/08 18:32:37 by root              #+#    #+#             */
+/*   Updated: 2024/11/12 12:37:11 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printft.h"
+#include "../ft_printf.h"
 
-int	ft_printptr(unsigned long n)
+int	ft_printstr(char *str, int fd)
 {
-	if(!n)
-		
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i])
+	{
+		ft_printchar(str[i], fd);
+		i++;
+	}
+	return (i);
 }

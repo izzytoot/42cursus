@@ -6,7 +6,7 @@
 #    By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:47:57 by root              #+#    #+#              #
-#    Updated: 2024/11/11 15:43:32 by icunha-t         ###   ########.fr        #
+#    Updated: 2024/11/12 12:17:09 by icunha-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #==============================================================================#
 NAME = libftprintf.a
 
-SRCS = srcs/ft_printf.c srcs/ft_printchar.c srcs/ft_printstr.c srcs/ft_printptr.c
+SRCS = src/ft_printf.c src/ft_printchar.c src/ft_printstr.c src/ft_printint.c src/ft_printptr.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -47,7 +47,7 @@ all: $(NAME)
 	$(C_COMP) $(FLAGS) -c $< -o $@
 	
 $(NAME): $(OBJS)
-	@(AR) $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 	@echo $(GREEN) "$(NAME) was created successfully!"$(RESET)
 
 clean:
