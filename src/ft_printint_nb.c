@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printint.c                                      :+:      :+:    :+:   */
+/*   ft_printint_nb.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:47:56 by root              #+#    #+#             */
-/*   Updated: 2024/11/12 12:36:47 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:17:18 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	printint(char spec, long n, int base, int fd)
+int	ft_printint_nb(int n, int fd)
 {
 	int		r;
-	char	*sym;
 
-	if (spec == 'X')
-		sym = HEX_UPP;
-	else if (spec == 'x')
-		sym = HEX_LOW;
+	r = 0;
+	if (n == MIN_INT)
+		return (write(fd, "-2147483648", 11));
 	if (n < 0)
 	{
-		write (fd, "-", 1);
-		return (ft_printint(spec, -n, base + 1, fd));
+		r = r + ft_printchar ('-', fd);
+		n = -n;
 	}
-	else if (n < base)
-		return (ft_printchar(sym[n], fd));
-	else
-	{
-		r = ft_printint(spec, n / base, base, fd);
-		return (r + ft_printint(spec, n % base, base, fd));
-	}
+	if (n > 9)
+		r = r + ft_printint_nb(n / 10, fd);
+	r = r + ft_printchar((n % 10) + '0', fd);
+	return (r);
 }
+

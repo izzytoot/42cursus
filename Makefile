@@ -6,7 +6,7 @@
 #    By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/08 14:47:57 by root              #+#    #+#              #
-#    Updated: 2024/11/12 12:17:09 by icunha-t         ###   ########.fr        #
+#    Updated: 2024/11/13 17:38:57 by icunha-t         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #==============================================================================#
 NAME = libftprintf.a
 
-SRCS = src/ft_printf.c src/ft_printchar.c src/ft_printstr.c src/ft_printint.c src/ft_printptr.c
+SRCS = src/ft_printf.c src/ft_printchar.c src/ft_printstr.c src/ft_printint_nb.c src/ft_printint_u.c src/ft_printint_hex.c src/ft_printptr.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -56,8 +56,7 @@ clean:
 	
 fclean: clean
 	@$(RM) $(NAME)
-	@$(RM) $(LIBFT_ARC)
-	@echo $(RED) "$(NAME) and $(LIBFT_ARC) were deleted!" $(RESET)
+	@echo $(RED) "$(NAME) was deleted!" $(RESET)
 
 re: fclean all
 

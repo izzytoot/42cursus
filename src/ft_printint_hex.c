@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_printint_hex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:32:37 by root              #+#    #+#             */
-/*   Updated: 2024/11/12 17:23:35 by icunha-t         ###   ########.fr       */
+/*   Created: 2024/11/12 15:27:53 by icunha-t          #+#    #+#             */
+/*   Updated: 2024/11/13 17:35:16 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printstr(char *str, int fd)
+int	ft_printint_hex(char spec, unsigned int n, int fd)
 {
-	int	i;
+	int		r;
+	char	*hexa;
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	r = 0;
+	if (spec == 'X')
+		hexa = HEX_UPP;
+	else
+		hexa = HEX_LOW;
+	if (n >= 16)
 	{
-		ft_printchar(str[i], fd);
-		i++;
+		r = r + ft_printint_hex(spec, n / 16, fd);
+		r = r + ft_printint_hex(spec, n % 16, fd);
 	}
-	return (i);
+	else
+		r = r + ft_printchar (hexa[n], fd);
+	return (r);
 }

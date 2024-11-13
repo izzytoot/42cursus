@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:57:55 by root              #+#    #+#             */
-/*   Updated: 2024/11/12 12:32:06 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/13 17:35:40 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	ft_print_format(char spec, va_list ap, int fd)
 	else if (spec == 'p')
 		r = ft_printptr((unsigned long)va_arg(ap, unsigned long), fd);
 	else if (spec == 'd' || spec == 'i')
-		r = ft_printint(spec, (long)va_arg(ap, int), 10, fd);
+		r = ft_printint_nb(va_arg(ap, int), fd);
 	else if (spec == 'u')
-		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 10, fd);
+		r = ft_printint_u(va_arg(ap, unsigned int), fd);
 	else if (spec == 'x' || spec == 'X')
-		r = ft_printint(spec, (long)va_arg(ap, unsigned int), 16, fd);
+		r = ft_printint_hex(spec, va_arg(ap, unsigned int), fd);
 	else
 		r += write(fd, &spec, 1);
 	return (r);
