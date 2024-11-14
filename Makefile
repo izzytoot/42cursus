@@ -27,8 +27,6 @@ C_COMP = cc
 
 FLAGS = -Wall -Werror -Wextra
 
-FLAGS += -g
-
 RM = rm -f
 
 AR = ar rcs

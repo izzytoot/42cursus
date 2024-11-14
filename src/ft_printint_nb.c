@@ -17,7 +17,7 @@ int	ft_printint_nb(int n, int fd)
 	int		r;
 
 	r = 0;
-	if (n == MIN_INT)
+	if (n == INT_MIN)
 		return (write(fd, "-2147483648", 11));
 	if (n < 0)
 	{
