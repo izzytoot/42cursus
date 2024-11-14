@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:57:55 by root              #+#    #+#             */
-/*   Updated: 2024/11/13 17:35:40 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:02:36 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_printf(const char *format, ...)
 			r = r + ft_print_format(*(++format), ap, fd);
 		else
 			r = r + ft_printchar(*format, fd);
+		if (*format == 0)
+			break ;
 		++format;
 	}
 	va_end(ap);
