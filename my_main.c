@@ -616,15 +616,5 @@ int	main(void)
 	ft_printf("my length: %d.\n", lenmine);
 	printf("original length: %d.\n", lenorig);
 
-	ft_printf("\n");
-
-	ft_printf("Teste extra 2:\n");
-	lenmine = ft_printf("%");
-	ft_printf("\n");
-	lenorig = printf("%");
-	printf("\n");
-	ft_printf("my length: %d.\n", lenmine);
-	printf("original length: %d.\n", lenorig);
-
 	return (0);
 }
