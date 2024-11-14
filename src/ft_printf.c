@@ -50,7 +50,10 @@ int	ft_printf(const char *format, ...)
 		else
 			r = r + ft_printchar(*format, fd);
 		if (*format == 0)
+		{
+			return (-1);
 			break ;
+		}
 		++format;
 	}
 	va_end(ap);
