@@ -29,4 +29,3 @@ int	ft_printint_nb(int n, int fd)
 	r = r + ft_printchar((n % 10) + '0', fd);
 	return (r);
 }
-

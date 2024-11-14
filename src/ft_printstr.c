@@ -6,7 +6,7 @@
 /*   By: icunha-t <icunha-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:32:37 by root              #+#    #+#             */
-/*   Updated: 2024/11/12 17:23:35 by icunha-t         ###   ########.fr       */
+/*   Updated: 2024/11/14 13:03:13 by icunha-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printstr(char *str, int fd)
 
 	i = 0;
 	if (!str)
-		return (0);
+		return (ft_printstr("(null)", fd));
 	while (str[i])
 	{
 		ft_printchar(str[i], fd);
