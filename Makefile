@@ -15,7 +15,7 @@
 #==============================================================================#
 NAME = libftprintf.a
 
-TESTER = tester.a
+TESTER = printftester.a
 
 SRCS = src/ft_printf.c src/ft_printchar.c src/ft_printstr.c src/ft_printint_nb.c src/ft_printint_u.c src/ft_printint_hex.c src/ft_printptr.c
 
@@ -38,7 +38,8 @@ AR = ar rcs
 #                                 COLORS                                       #
 #==============================================================================#
 RED		= "\033[0;31m"
-GREEN		= "\033[0;32m"  
+GREEN		= "\033[0;32m"
+YELLOW		= "\033[0;33m" 
 RESET		= "\033[0m"
 #==============================================================================#
 #                                  RULES MAIN_LIB                              #
@@ -68,7 +69,7 @@ cleantest:
 #==============================================================================#
 clean:
 	@$(RM) $(OBJS)
-	@echo $(RED) "Objs deleted!" $(RESET)
+	@echo $(RED) "All .o files were deleted in printf!" $(RESET)
 	
 fclean: clean cleantest
 	@$(RM) $(NAME)
